@@ -1,2 +1,4 @@
+.expo
+.expo-shared
 __pycache__
-all-requirements.txt
+node_modules
