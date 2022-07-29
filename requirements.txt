@@ -9,3 +9,15 @@ npm install @react-navigation/bottom-tabs
 npm install @react-navigation/material-top-tabs react-native-tab-view
 
 npm install react-native-pager-view
+
+
+-----------------
+
+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
+
+
+git push https://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@github.com/maneesh-hfcl/RSSA-Service.git
+
+
+git push https://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@github.com/maneesh-hfcl/RSSA-mobile-app.git
+
