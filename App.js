@@ -1,28 +1,13 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import StackLoginScreen from "./navigation/stack/loginstack";
 
 const App = ()=>{
     return(
-        <View style={styles.container}>
-            <Text>First line text</Text>
-            <Text style={styles.text}>Second line text {3}</Text>
-            <Text>Third line text comes here</Text>
-            <StatusBar style="inverted" />
-        </View>
+        <NavigationContainer>
+            <StackLoginScreen />
+        </NavigationContainer>
     )
 }
 
 export default App;
-
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center'
-    },
-    text:{
-        color:'red',
-        fontSize:20
-    }
-})
