@@ -4,6 +4,7 @@ import BaseContainer from "../components/propsOuter";
 import { globalStyles } from "../style/global";
 
 const HomeScreen = ()=>{
+    console.log("home screen");
     return(
         <BaseContainer>
             <Text>Home Screen</Text>

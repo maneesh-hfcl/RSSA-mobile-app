@@ -8,7 +8,7 @@ const SitesScreen = ({navigation})=>{
     const[items, setItems] = useState(null)
 
     const data = [
-        {"Id":1, "Name":"HFCL", 
+        {"Id":1, "Name":"HFCL sector 32 gurugram, Haryana 122001", 
             "Address":"Plot 38, Gurugram 32",
             "Pincode":"122001",
             "Lat":28.44616, "Long": 77.0413349,
@@ -27,15 +27,19 @@ const SitesScreen = ({navigation})=>{
     ]
     const loadList = ()=>{
         setItems(data)
+        console.log(data);
     }
 
-    useEffect(()=>
+    useEffect(()=>{
+    console.log("site screen");
         loadList()
+
+    }
     ,[])
 
     const onItemClick = (item)=>{
         //console.log(item)
-        navigation.navigate("Process")
+        navigation.navigate("Process",{itemqry: item})
 
     }
 

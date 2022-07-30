@@ -4,6 +4,7 @@ import BaseContainer from "../components/propsOuter";
 import { globalStyles } from "../style/global";
 
 const AccountScreen = ({navigation})=>{
+    console.log("account screen");
     return(
         <BaseContainer>
             
