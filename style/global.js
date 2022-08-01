@@ -6,13 +6,23 @@ export const globalStyles = StyleSheet.create({
         backgroundColor:"#fff"
     },
     text_input:{
-        borderWidth:1,
+        borderBottomWidth:1,
         borderColor:'#c7c7c7',
         marginHorizontal:5,
-        paddingVertical:10,
+        paddingVertical:0,
         paddingHorizontal:5,
-        marginVertical:10,
-        borderRadius:5
+        marginVertical:5,
+        fontSize:20
+        
+    },  
+    text_login:{
+        marginHorizontal:5,
+        marginVertical:5,
+        marginTop:20,
+        paddingHorizontal:5,
+        fontSize:18,
+        
+
     },
     touchable_btn:{
 //        backgroundColor:'#1270b5',
@@ -24,6 +34,16 @@ export const globalStyles = StyleSheet.create({
         paddingVertical:8,
         borderRadius:5
     },
+    touchable_btn_login:{
+        //        backgroundColor:'#1270b5',
+                backgroundColor:'#eb7405',
+                alignItems:'center',
+                marginVertical:15,
+                marginHorizontal:5,
+                paddingHorizontal:15,
+                paddingVertical:12,
+                borderRadius:5
+            },
     text_btn:{
         color:'#fff',
         fontWeight:'bold',
@@ -34,10 +54,10 @@ export const globalStyles = StyleSheet.create({
         
      },
     item_outer_view:{
-        borderBottomWidth:1,
-        backgroundColor:"#edebe6",
-        borderBottomColor:"#c4c2bc",
-        borderRadius:5,
+        borderTopWidth:1,
+        backgroundColor:"#fff",
+        borderTopColor:"gray",
+        borderRadius:0,
         marginHorizontal:10,
         marginVertical:8,
         paddingHorizontal:5,

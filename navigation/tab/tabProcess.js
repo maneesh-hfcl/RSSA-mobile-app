@@ -2,7 +2,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { useEffect, useState } from "react";
 import { Alert , Text} from "react-native";
 import ProcessBaseComponent from "../../components/processBase";
-import listProcesses from "../../data/processList";
+import {listProcesses} from "../../data/processList";
 import AccountScreen from "../../screens/accountScreen";
 
 const Tab = createMaterialTopTabNavigator();
@@ -14,7 +14,7 @@ const TabProcessScreen = ()=>{
     useEffect(()=>{
         //Alert.alert('helo')
         //console.log(listProcesses())
-        const data = listProcesses()
+        const data = listProcesses() //listProcesses()
         setProcesses(data)
         console.log(data)
     }

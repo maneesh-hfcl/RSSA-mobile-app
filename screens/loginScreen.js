@@ -15,9 +15,11 @@ const LoginScreen = ({navigation})=>{
         <BaseContainer>
             <LoginHeader />
             <View style={globalStyles.container_login}>
-                <TextInput style={globalStyles.text_input} defaultValue='Username' />
-                <TextInput style={globalStyles.text_input} defaultValue='Password' />
-                <TouchableOpacity style={globalStyles.touchable_btn} onPress={pressHandler}>
+                <Text style={globalStyles.text_login}>Username</Text>
+                <TextInput style={globalStyles.text_input} defaultValue='' />
+                <Text style={globalStyles.text_login}>Password</Text>
+                <TextInput style={globalStyles.text_input} defaultValue='' />
+                <TouchableOpacity style={globalStyles.touchable_btn_login} onPress={pressHandler}>
                     <Text style={globalStyles.text_btn}>Login</Text>
                 </TouchableOpacity>
             

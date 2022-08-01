@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import {View, Text, FlatList} from 'react-native'
+import ItemChklistTemplate from "./itemChkTemplate";
 import ItemTemplate from "./itemTemplate";
 
-const ResultList = ({items, onItemClick})=>{
+const ResultList = ({items, onItemClick, type, isEnabled,toggleSwitch})=>{
     
     const renderItem = ({item})=>{
+        if(type == "checklist")
+            return <ItemChklistTemplate item={item} 
+                isEnabled={isEnabled} toggleSwitch={toggleSwitch} />
         return(<ItemTemplate item={item} onItemClick={onItemClick} />)
     }
 
