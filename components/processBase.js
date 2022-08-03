@@ -8,11 +8,14 @@ import CommissionScreen from "../screens/process/commissionScreen";
 import DriveTestScreen from "../screens/process/driveTestScreen";
 import AcceptanceScreen from "../screens/process/acceptanceScreen";
 import CustHandoverScreen from "../screens/process/custHandoverScreen";
+import StackSiteSurvey from "../navigation/stack/siteSurveyStack";
 
 const ProcessBaseComponent = ({route})=>{
 //     const[scrnId, setScrnId] = useState(0)
-     const {processId} = route.params;
-//     //console.log(route.params)
+    const[siteId, setSiteId] = useState(null)
+     const {processId, site} = route.params;
+    // console.log(site.Name)
+ //   console.log("Process id base comp " + site.Name)
 //     const routeName = getFocusedRouteNameFromRoute(route);
 //    // console.log(routeName)
 //    useEffect(() => {
@@ -21,17 +24,16 @@ const ProcessBaseComponent = ({route})=>{
 //         console.log("first time load: "+ scrnId)
 //     }
 //     ,[])
-//    useEffect(() => {
-//         if(scrnId == 0)
-//         return;
-//        setScrnId(processId)
-//        console.log("after: " + scrnId)
-//     }
-//     ,[route])
+   useEffect(() => {
+      //  const {processId} = route.params;
+        
+      //  setSiteId(processId)
+    }
+    ,[route])
 
     switch(processId){
         case 1:
-            return <SiteSurveyScreen />
+            return <StackSiteSurvey siteRoute={route.params} />
             break;
         case 2: 
             return <SiteBuildScreen />

@@ -25,6 +25,7 @@ const SitesScreen = ({navigation})=>{
              "Description":"Third site allocated "},
  
     ]
+
     const loadList = ()=>{
         setItems(data)
         console.log(data);

@@ -1,13 +1,23 @@
 import React from "react";
-import {View, Text} from 'react-native'
+import {View, Text, TouchableOpacity} from 'react-native'
 import BaseContainer from "../components/propsOuter";
 import { globalStyles } from "../style/global";
 
-const HomeScreen = ()=>{
+const HomeScreen = ({navigation})=>{
     console.log("home screen");
     return(
         <BaseContainer>
-            <Text>Home Screen</Text>
+            <View style={globalStyles.insideContainer}>
+                <Text>
+                    Dashboard screen
+                </Text>
+                <TouchableOpacity style={[globalStyles.touchable_btn_go,{marginVertical:20}]}
+                    onPress={() => navigation.navigate("SitesStack")}
+                >
+                    <Text style={globalStyles.text_btn}>Go to Site Screen</Text>
+                </TouchableOpacity>
+            </View>
+
         </BaseContainer>
     )
 }

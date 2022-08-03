@@ -12,7 +12,7 @@ const StackSiteScreen = ()=>{
         if(route.params)
         {
         const {itemqry} = route.params
-       console.log(itemqry)
+      // console.log(itemqry)
         return itemqry.Name
         }
         return "Process"
@@ -33,6 +33,7 @@ const StackSiteScreen = ()=>{
                 })  }  
             
             />
+            
         </Stack.Navigator>
     )
 }

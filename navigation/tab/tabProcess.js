@@ -6,9 +6,10 @@ import {listProcesses} from "../../data/processList";
 import AccountScreen from "../../screens/accountScreen";
 
 const Tab = createMaterialTopTabNavigator();
-const TabProcessScreen = ()=>{
+const TabProcessScreen = ({route})=>{
     const[processes, setProcesses] = useState([])
-
+    const {itemqry} = route.params
+   // console.log(itemqry.Name)
     
 
     useEffect(()=>{
@@ -18,7 +19,7 @@ const TabProcessScreen = ()=>{
         setProcesses(data)
         console.log(data)
     }
-    ,[])
+    ,[route])
 
     if(processes.length < 1)
         return null;
@@ -28,17 +29,15 @@ const TabProcessScreen = ()=>{
             <Tab.Navigator screenOptions={{tabBarScrollEnabled:true}} 
                 defaultScreenOptions ={{
                     tabBarLabelStyle:{textTransform:"none"},
-                    
                 }}
             >
-            {
-               
-                processes.map( (item, index) => 
-                    <Tab.Screen key={index} name={"screen"+item.Id} initialParams={{processId:item.Id}} component={ProcessBaseComponent} options={{title:item.Name}} />
-                )
-                
-            }
-            
+                    {
+                        processes.map( (item, index) => 
+                            <Tab.Screen key={index} name={"screen"+item.Id} initialParams={{processId:item.Id, site: itemqry}} component={ProcessBaseComponent} options={{title:item.Name}} />
+                        )
+                        
+                    }
+
             </Tab.Navigator>
 
         

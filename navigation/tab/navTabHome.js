@@ -10,7 +10,8 @@ const TabHomeScreen = ()=>{
     return(
         <Tab.Navigator>
             <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="SitesStack" component={StackSiteScreen} options={{title:"Sites"}} />
+            <Tab.Screen name="SitesStack" component={StackSiteScreen} 
+            options={{title:"Sites"}}  />
             <Tab.Screen name="Account" component={AccountScreen} />
         </Tab.Navigator>
     )

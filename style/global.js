@@ -5,6 +5,10 @@ export const globalStyles = StyleSheet.create({
         flex:1,
         backgroundColor:"#fff"
     },
+    insideContainer:{
+        alignItems:'center',
+        marginVertical:10
+    },
     text_input:{
         borderBottomWidth:1,
         borderColor:'#c7c7c7',

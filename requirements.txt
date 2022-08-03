@@ -10,7 +10,6 @@ npm install @react-navigation/material-top-tabs react-native-tab-view
 
 npm install react-native-pager-view
 
-
 -----------------
 
 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
