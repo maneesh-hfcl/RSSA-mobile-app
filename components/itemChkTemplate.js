@@ -1,12 +1,14 @@
 import React from "react";
 import {View, Text, Switch, StyleSheet, TouchableOpacity} from 'react-native'
 import { Entypo } from '@expo/vector-icons';
+import { globalStyles } from "../style/global";
 
 const ItemChklistTemplate = ({item, toggleSwitch, UploadContent})=>{
     return(
         <View style={styles.outer_view_container}>
                 <View style={{flexDirection:'row'}}>
-                    <Text style={{flex:1}}>{item.Name}</Text>
+                    <Text style={globalStyles.card_bullet}>{'\u2B24'}</Text>
+                    <Text style={{flex:1,marginRight:5}}>{item.Name}</Text>
                     <Switch style={{alignSelf:"flex-start"}}
                         value={item.Checked}
                         onValueChange={() => toggleSwitch(item)}
@@ -29,10 +31,10 @@ export default ItemChklistTemplate;
 const styles = StyleSheet.create({
     outer_view_container:{
         marginHorizontal:10,
-        marginVertical:10, 
+        marginVertical:3, 
         borderColor:'#bcd1e3', 
-        borderWidth:1, 
-        borderRadius:5,
+        borderBottomWidth:1,
+         borderRadius:0,
         backgroundColor:'#e9f0f7',
         paddingVertical:5,
         paddingHorizontal:5,

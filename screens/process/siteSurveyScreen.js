@@ -43,7 +43,7 @@ const SiteSurveyScreen = ({navigation, route})=>{
                 return obj
             }    
         )
-        console.log(newList) 
+   //     console.log(newList) 
       // const checklist2 = {...chklist, itmChanged}
      //  console.log('New checklist')
       // console.log(itmChanged) 

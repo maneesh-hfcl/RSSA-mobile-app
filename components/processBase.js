@@ -10,7 +10,7 @@ import AcceptanceScreen from "../screens/process/acceptanceScreen";
 import CustHandoverScreen from "../screens/process/custHandoverScreen";
 import StackSiteSurvey from "../navigation/stack/siteSurveyStack";
 
-const ProcessBaseComponent = ({route})=>{
+const ProcessBaseComponent = ({route}, props)=>{
 //     const[scrnId, setScrnId] = useState(0)
     const[siteId, setSiteId] = useState(null)
      const {processId, site} = route.params;
@@ -33,7 +33,7 @@ const ProcessBaseComponent = ({route})=>{
 
     switch(processId){
         case 1:
-            return <StackSiteSurvey siteRoute={route.params} />
+            return <StackSiteSurvey siteRoute={route.params} {...props} />
             break;
         case 2: 
             return <SiteBuildScreen />

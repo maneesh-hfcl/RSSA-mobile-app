@@ -89,5 +89,12 @@ export const globalStyles = StyleSheet.create({
     },
     touchable_btn_logout:{
         marginVertical:20
+    },
+    card_bullet:{
+        fontSize:4,
+        color:'black',
+        alignSelf:'auto',
+        flex:0.08,
+        marginVertical:5      
     }
 })

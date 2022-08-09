@@ -33,7 +33,13 @@ const TabProcessScreen = ({route})=>{
             >
                     {
                         processes.map( (item, index) => 
-                            <Tab.Screen key={index} name={"screen"+item.Id} initialParams={{processId:item.Id, site: itemqry}} component={ProcessBaseComponent} options={{title:item.Name}} />
+                            <Tab.Screen key={index} name={"screen"+item.Id} 
+                                initialParams={{processId:item.Id, site: itemqry}} 
+                                component={ProcessBaseComponent} 
+                                options={() =>({
+                                    title:item.Name})
+                                } 
+                                />
                         )
                         
                     }
