@@ -1,21 +1,10 @@
 import React from "react";
 import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native'
 
-const CardMenuIcon = ({children})=>{
-    //console.log(children)
-    const pressMenuIcon = ()=>{
-        const{menuName, navigation} = children.props
-       // console.log(menuName)
-        if(menuName === "openCam"){
-            //console.log(navigation)
-            navigation.navigate("TakePic")
-        }
-
-    }
-
+const CardMenuIcon = ({children, pressMenuIcon})=>{
     return(
         <View style={styles.card_icon_container}>
-            <TouchableOpacity onPress={pressMenuIcon}>
+            <TouchableOpacity  onPress={pressMenuIcon}>
                 {children}
             </TouchableOpacity>
         </View>
@@ -29,10 +18,10 @@ const styles = StyleSheet.create({
         borderColor:'#bcd1e3', 
         borderBottomWidth:0,
         borderRightWidth:0, 
-        borderRadius:30,
-        backgroundColor:'#bcd1e3',
-        height:60,
-        width:60,
+        borderRadius:25,
+        backgroundColor:'#e7fcd2',
+        height:50,
+        width:50,
         alignItems:'center',
         justifyContent:'center'
     }

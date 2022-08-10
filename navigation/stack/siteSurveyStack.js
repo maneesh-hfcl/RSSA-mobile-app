@@ -29,21 +29,7 @@ const StackSiteSurvey = ({siteRoute, navigation})=>{
                 <Stack.Screen name="SiteSurvey" component={SiteSurveyScreen} initialParams={{siteRoute:siteRoute}}  options={{headerShown:false}} />
                 
             </Stack.Group>
-            <Stack.Group screenOptions={{presentation:'fullScreenModal'}}>
-                <Stack.Screen name="UpldModal" component={UpldModalScreen} 
-                    options={({navigation, route})=>(
-                        {
-//                            title: 'Image/Video'
-                            headerTitle:(props) => <Header {...props} />,
-                            
-                        })
-                    } />
-                <Stack.Screen name="TakePic" component={TakePictureComp}
-                    options={{
-                        title:'Add picture/ video'
-                    }}
-                />    
-            </Stack.Group>
+ 
             <Stack.Group screenOptions={{presentation:''}}>
                 
             </Stack.Group>

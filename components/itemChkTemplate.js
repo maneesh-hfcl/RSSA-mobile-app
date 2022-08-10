@@ -15,11 +15,23 @@ const ItemChklistTemplate = ({item, toggleSwitch, UploadContent})=>{
                     />
                 </View>
                 {item.Checked &&
-                    <View style={[styles.upload_container]}>
-                        <TouchableOpacity style={styles.btn_upload} onPress={() => UploadContent(item)}>
-                            <Entypo name="images" size={20} color="black" style={{marginHorizontal:10}} />
-                            <Text style={{color:"#0252d1"}}>Upload</Text>
-                        </TouchableOpacity>
+                    <View style={{flexDirection:'row', justifyContent:'space-between', marginVertical:10, marginHorizontal:0}}>
+                        <View style={styles.btn_imageVideo}>
+                            <Text style={{marginHorizontal:10, color:"gray"}}>Files: 
+                                <Text style={{fontWeight:'bold', color:'#000'}}> 3</Text>
+                            </Text>
+                        </View>
+                        <View style={styles.btn_imageVideo}>
+                            <Text style={{marginHorizontal:10, color:"gray"}}>Comments: 
+                                <Text style={{fontWeight:'bold', color:'#000'}}> 5</Text>
+                            </Text>
+                        </View>
+                        <View style={{}}>
+                            <TouchableOpacity style={styles.btn_upload} onPress={() => UploadContent(item)}>
+                                <Entypo name="images" size={20} color="black" style={{marginHorizontal:10}} />
+                                <Text style={{color:"#0252d1"}}>Add Items</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 }
         </View>
@@ -40,18 +52,29 @@ const styles = StyleSheet.create({
         paddingHorizontal:5,
     },
     upload_container:{
-        marginVertical:10,
-        flexDirection:"row-reverse",
+      flex:1,
+      marginHorizontal:10,
+      marginVertical:10  
     },
     btn_upload:{
         borderWidth:1,
         borderColor:"lightgray",
-        borderRadius:5,
+        borderRadius:12,
         flexDirection:"row-reverse",
         paddingHorizontal:0,
         paddingRight:10,
         paddingVertical:3,
         alignItems:"center",
         backgroundColor:'#e7fcd2'
+    },    
+
+    btn_imageVideo:{
+        borderWidth:1,
+        borderColor:"lightgray",
+        borderRadius:12,
+        paddingHorizontal:0,
+        justifyContent:'center',
+        alignItems:"center",
+        backgroundColor:'#fff'
     }    
 })

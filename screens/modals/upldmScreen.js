@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import {View, Text, TouchableOpacity, Alert, Image, ScrollView, FlatList, Dimensions} from 'react-native'
+import {View, Text, TouchableOpacity, Alert, Image, ScrollView, FlatList, Dimensions, Modal} from 'react-native'
 import CardTopic from "../../components/card/cardTopic";
 import { globalStyles } from "../../style/global";
 import { AntDesign, Ionicons } from '@expo/vector-icons';
 import CardMenuIcon from "../../components/card/cardMenuicon";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { render } from "react-dom";
+import ImageModalScreen from "./imageModalScreen";
+import CommentModalScreen from "./commentScreeen";
+import BaseContainer from "../../components/propsOuter";
 
 const HeaderLeft = (navigation)=>{
     return(
@@ -18,11 +21,13 @@ const HeaderLeft = (navigation)=>{
     )
 }
 
-
 const UpldModalScreen = ({navigation, route}) =>{
     const {item, site} = route.params
     const[upldImages, setUpldImages] = useState([])
     const[scrnWdth, setScrnWdth] = useState(Dimensions.get('screen').width)
+    const[selIndx, setSelIndx] = useState(-1)
+    const[selImage, setSelImage] = useState(null)
+    const[openCmnt, setOpenCmnt] = useState(false)
 
     const viewImages = async ()=>{
         //Alert.alert("View images online")
@@ -54,34 +59,79 @@ const UpldModalScreen = ({navigation, route}) =>{
         viewImages()
     },[])
 
-    const renderItem = ({item})=>{
+    const renderItem = ({item, index})=>{
         return(
-            <Image source={{uri:item}} 
-                style={{width:scrnWdth/3, height:scrnWdth/3, marginVertical:1,
-                marginHorizontal:1
-            }} />
+            <TouchableOpacity onPress={() => showImageView(index, item)}>
+                <Image source={{uri:item}}  
+                    style={{width:scrnWdth/3, height:scrnWdth/3, marginVertical:1,
+                    marginHorizontal:1
+                }} />
+            </TouchableOpacity>
         )
     }
 
+    const showImageView = (index, item)=>{
+      //  console.log(item)
+        setSelIndx(index)
+        setSelImage(item)
+    }
+
+    const pressMenuIcon = (menuName)=>{
+        
+        if(menuName === "openCam"){
+            //console.log(navigation)
+            navigation.navigate("TakePic")
+        }
+        else if(menuName == "comments"){
+            setOpenCmnt(true)
+        }
+    }
+
+    const closeModal = ()=>{
+       // Alert.alert("go back")
+       setSelIndx(-1)
+       //navigation.goBack()
+    }
+
+    const delPicture = ()=>{
+        let filteredItems = upldImages.splice(selIndx, 1)
+        closeModal()
+        //Alert.alert('delete picture')
+    }
+
+    const closeComment = ()=>{
+        setOpenCmnt(false)
+    }
+
+    const saveComment = ()=>{
+        Alert.alert('save comment')
+    }
+
     return(
-        <View style={{flex:1}}>
+        <BaseContainer>
+        <View style={{flex:1, backgroundColor:'#fff'}}>
             {/* <Text>{item.Id}</Text> */}
             <CardTopic>
                 <Text style={{textAlign:'justify', flex:1}}>{item.Name}</Text>
             </CardTopic>
 
-            <View style={{flexDirection:"row", marginHorizontal:10, marginVertical:10, justifyContent:"space-around"}}>
-                <CardMenuIcon>
-                    <AntDesign navigation={navigation} menuName="openCam" name="picture" size={28} color="#ad3141" />
-                </CardMenuIcon>
-                <CardMenuIcon>
+            <View style={{flexDirection:"row", marginHorizontal:0, 
+                marginVertical:0, justifyContent:"space-around",
+                borderBottomWidth:1,paddingVertical:6,
+                borderBottomColor:'#c7c7c7'
+                }}>
+
+                {/* <CardMenuIcon>
                     <AntDesign menuName="openVideo" name="videocamera" size={28} color="#ad3141" />
+                </CardMenuIcon> */}
+                <CardMenuIcon pressMenuIcon={() => pressMenuIcon('folder')}>
+                    <AntDesign name="folder1" size={28} color="green" />
                 </CardMenuIcon>
-                <CardMenuIcon>
-                    <AntDesign name="folder1" size={28} color="#ad3141" />
+                <CardMenuIcon pressMenuIcon={()=> pressMenuIcon('openCam')}>
+                    <AntDesign name="camera" size={28} color="green" />
                 </CardMenuIcon>
-                <CardMenuIcon>
-                    <AntDesign name="filetext1" size={28} color="#ad3141" />
+                <CardMenuIcon pressMenuIcon={() => pressMenuIcon('comments')}>
+                    <AntDesign name="filetext1" size={28} color="green" />
                 </CardMenuIcon>
                 
             </View>
@@ -101,7 +151,7 @@ const UpldModalScreen = ({navigation, route}) =>{
                 </View>
 
             </ScrollView> */}
-            <View style={{flex:0.92}}>
+            <View style={{flex:0.92, marginHorizontal:1}}>
                 <FlatList
                     numColumns={3}
                     data={upldImages}
@@ -109,14 +159,23 @@ const UpldModalScreen = ({navigation, route}) =>{
                     renderItem={renderItem}
                 />
             </View>
-            <View style={{}}>
+            {
+                selIndx > -1 &&
+                <ImageModalScreen selImage={selImage} closeModal={closeModal}
+                    delPicture={delPicture}
+                />
 
-            </View>
+            }
+
+            {
+                openCmnt &&
+                <CommentModalScreen closeComment={closeComment} saveComment={saveComment} />    
+            }    
 
             {/* <Text>{site.Name} </Text> */}
 
         </View>
-
+        </BaseContainer>    
     )
 }
 

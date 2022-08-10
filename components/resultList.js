@@ -8,7 +8,8 @@ const ResultList = ({items, onItemClick, type, isEnabled,toggleSwitch, UploadCon
     const renderItem = ({item})=>{
         if(type == "checklist")
             return <ItemChklistTemplate item={item} 
-                isEnabled={isEnabled} toggleSwitch={toggleSwitch} UploadContent={UploadContent}  />
+                    isEnabled={isEnabled} toggleSwitch={toggleSwitch} UploadContent={UploadContent}  />
+                
         return(<ItemTemplate item={item} onItemClick={onItemClick} />)
     }
 
