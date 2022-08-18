@@ -1,8 +1,9 @@
 import { BaseNavigationContainer } from "@react-navigation/native";
 import React,{useState, useEffect} from "react";
-import {View, Text} from 'react-native'
+import {View, Text, ScrollView} from 'react-native'
 import BaseContainer from "../components/propsOuter";
 import ResultList from "../components/resultList";
+import { globalStyles } from "../style/global";
 
 const SitesScreen = ({navigation})=>{
     const[items, setItems] = useState(null)
@@ -19,6 +20,16 @@ const SitesScreen = ({navigation})=>{
             "Lat":28.44616, "Long": 77.0413349,
              "Description":"Second site allocated "},
         {"Id":3, "Name":"HFCL 2", 
+            "Address":"Plot 32, Gurugram 32",
+            "Pincode":"122001",
+            "Lat":28.441794, "Long": 77.0396063,
+             "Description":"Third site allocated "},
+        {"Id":4, "Name":"HFCL 2", 
+            "Address":"Plot 32, Gurugram 32",
+            "Pincode":"122001",
+            "Lat":28.441794, "Long": 77.0396063,
+             "Description":"Third site allocated "},
+        {"Id":5, "Name":"HFCL 2", 
             "Address":"Plot 32, Gurugram 32",
             "Pincode":"122001",
             "Lat":28.441794, "Long": 77.0396063,
@@ -45,9 +56,11 @@ const SitesScreen = ({navigation})=>{
     }
 
     return(
-        <BaseContainer>
+        
+        <View style={[globalStyles.container, {paddingVertical:10}]}>
             <ResultList onItemClick={onItemClick} items={items} />
-        </BaseContainer>
+        </View>
+        
     )
 }
 

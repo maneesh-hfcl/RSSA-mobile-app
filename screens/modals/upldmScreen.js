@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {View, Text, TouchableOpacity, Alert, Image, ScrollView, FlatList, Dimensions, Modal} from 'react-native'
+import {View, Text, TouchableOpacity, Alert, Image, ScrollView, FlatList, Dimensions, Modal
+        , TouchableWithoutFeedback,
+        Pressable} from 'react-native'
 import CardTopic from "../../components/card/cardTopic";
 import { globalStyles } from "../../style/global";
 import { AntDesign, Ionicons } from '@expo/vector-icons';
@@ -28,6 +30,7 @@ const UpldModalScreen = ({navigation, route}) =>{
     const[selIndx, setSelIndx] = useState(-1)
     const[selImage, setSelImage] = useState(null)
     const[openCmnt, setOpenCmnt] = useState(false)
+    const[addComment, setAddComment] = useState(null)
 
     const viewImages = async ()=>{
         //Alert.alert("View images online")
@@ -63,8 +66,8 @@ const UpldModalScreen = ({navigation, route}) =>{
         return(
             <TouchableOpacity onPress={() => showImageView(index, item)}>
                 <Image source={{uri:item}}  
-                    style={{width:scrnWdth/3, height:scrnWdth/3, marginVertical:1,
-                    marginHorizontal:1
+                    style={{width:scrnWdth/3, height:scrnWdth/3, marginTop:1,
+                    marginRight:1
                 }} />
             </TouchableOpacity>
         )
@@ -103,12 +106,15 @@ const UpldModalScreen = ({navigation, route}) =>{
         setOpenCmnt(false)
     }
 
-    const saveComment = ()=>{
+    const saveComment = (item)=>{
+        console.log(addComment);
+        //setAddComment()
         Alert.alert('save comment')
     }
 
+   
     return(
-        <BaseContainer>
+
         <View style={{flex:1, backgroundColor:'#fff'}}>
             {/* <Text>{item.Id}</Text> */}
             <CardTopic>
@@ -169,13 +175,15 @@ const UpldModalScreen = ({navigation, route}) =>{
 
             {
                 openCmnt &&
-                <CommentModalScreen closeComment={closeComment} saveComment={saveComment} />    
+
+                    <CommentModalScreen closeComment={closeComment} saveComment={saveComment} addComment={setAddComment} /> 
+
             }    
 
             {/* <Text>{site.Name} </Text> */}
 
         </View>
-        </BaseContainer>    
+
     )
 }
 

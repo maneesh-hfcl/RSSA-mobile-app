@@ -1,17 +1,20 @@
 import React from "react";
-import {View, Text, StyleSheet, Modal, TextInput, TouchableOpacity} from 'react-native'
+import {View, Text, StyleSheet, Modal, TextInput, TouchableOpacity, 
+    Alert, TouchableWithoutFeedback, Keyboard, Pressable} from 'react-native'
 import { AntDesign, Ionicons, MaterialIcons, FontAwesome, Feather } from '@expo/vector-icons';
 import BaseContainer from "../../components/propsOuter";
 
-const CommentModalScreen = ({closeComment, saveComment}) =>{
+const CommentModalScreen = ({closeComment, saveComment, addComment}) =>{
     return(
 
-            <Modal 
+            <Modal style={{}}
                 transparent={true}
-            >
-                
-                <View style={{ 
-                        height:'35%', backgroundColor:'#fff', marginTop:'auto'}}>
+                onDismiss={() => Alert.alert('dismissing')}    
+                    
+                >
+                <Pressable onPress={Keyboard.dismiss} style={{flex:1}}>    
+                <View style={{  
+                        height:'35%', marginTop:'auto'}}>
                     <View style={{borderBottomWidth:1,borderBottomColor:'#c7c7c7',
                         paddingVertical:10,
                         paddingHorizontal:10,
@@ -23,7 +26,10 @@ const CommentModalScreen = ({closeComment, saveComment}) =>{
                         }}>
                         <Text style={{fontWeight:'bold'}}>Add comments</Text>
                     </View>        
-                    <TextInput style={{flex:1, backgroundColor:'#fff', textAlign:'left'}} multiline={true} /> 
+                    <TextInput 
+                        onChangeText={addComment}
+                        style={{flex:1, backgroundColor:'#fff', 
+                            textAlignVertical:'top', paddingHorizontal:5, paddingVertical:1}} multiline={true} /> 
                     <View style={{flexDirection:"row"}}>
                         <TouchableOpacity style={[styles.vw_btn,{flex:0.5,alignItems:'center',
                                  flexDirection:'row'}]} onPress={closeComment}>
@@ -40,7 +46,7 @@ const CommentModalScreen = ({closeComment, saveComment}) =>{
                         </TouchableOpacity>
                     </View>
                 </View>
-
+                </Pressable>   
             </Modal>
     )
 }

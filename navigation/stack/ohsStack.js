@@ -1,14 +1,13 @@
-import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TakePictureComp from "../../components/camera/capturePic";
 import UpldModalScreen from "../../screens/modals/upldmScreen";
-import ProcessScreen from "../../screens/siteProcessScreen";
-import SitesScreen from "../../screens/sitesScreen";
-import TabProcessScreen from "../tab/tabProcess";
+import CheckInForm from "../../screens/ohs/checkInForm";
+import OHSForm from "../../screens/ohs/ohsForm";
 import { Entypo, Ionicons } from '@expo/vector-icons';
 import {View, Text, TouchableOpacity} from 'react-native';
+import CheckinList from "../../screens/ohs/checkinList";
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator()  
 
 const Header = ()=>{
     return(
@@ -19,33 +18,23 @@ const Header = ()=>{
     )
 }
 
-const StackSiteScreen = ()=>{
-    const getHeaderTitle = (route)=>{
-        //const routeName = getFocusedRouteNameFromRoute(route)??'Processs';
-        if(route.params)
-        {
-        const {itemqry} = route.params
-      // console.log(itemqry)
-        return itemqry.Name
-        }
-        return "Process"
-    }
-
+const StackOHSScreen = ()=>{
     return(
-        <Stack.Navigator>
-            <Stack.Screen name="Sites" component={SitesScreen}  
-                options={({route}) =>({
-                    headerTitle:getHeaderTitle(route),
-                    headerShown: false
-                    
-                })  } 
+        <Stack.Navigator screenOptions={{}} initialRouteName="checkinlist" >
+            <Stack.Screen name="checkinlist" component={CheckinList} 
+                options={{
+                    headerShown:false
+                }}
             />
-            <Stack.Screen name="Process" component={TabProcessScreen}
-                  options={({route}) =>({
-                    headerTitle:getHeaderTitle(route)
-                    
-                })  }  
-            
+            <Stack.Screen name="checkin" component={CheckInForm} 
+                options={{
+                    headerShown:false
+                }}
+            />
+            <Stack.Screen name="OHSForm" component={OHSForm}
+                options={{
+                    title:'Fill in the checklist'
+                }}
             />
             <Stack.Group screenOptions={{presentation:'fullScreenModal'}}>
                 <Stack.Screen name="UpldModal" component={UpldModalScreen} 
@@ -63,9 +52,8 @@ const StackSiteScreen = ()=>{
                     }}
                 />    
             </Stack.Group>
-            
         </Stack.Navigator>
     )
 }
 
-export default StackSiteScreen;
+export default StackOHSScreen;

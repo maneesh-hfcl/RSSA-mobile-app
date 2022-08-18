@@ -12,13 +12,11 @@ npm install react-native-pager-view
 
 -----------------
 
-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
-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
-
+Current token: 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
 
 git push https://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@github.com/maneesh-hfcl/RSSA-Service.git
 
 
-git push https://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@github.com/maneesh-hfcl/RSSA-mobile-app.git
+git push https://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@github.com/maneesh-hfcl/RSSA-mobile-app.git
 
 

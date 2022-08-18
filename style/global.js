@@ -48,14 +48,15 @@ export const globalStyles = StyleSheet.create({
                 paddingVertical:12,
                 borderRadius:5
             },
+            
     text_btn:{
         color:'#fff',
-        fontWeight:'bold',
+        //fontWeight:'bold',
         fontSize:15
     },
     container_login:{
         marginHorizontal:20,
-        
+        backgroundColor:'#fff'  
      },
     item_outer_view:{
         borderTopWidth:1,
@@ -96,5 +97,38 @@ export const globalStyles = StyleSheet.create({
         alignSelf:'auto',
         flex:0.08,
         marginVertical:5      
-    }
+    },
+    text_light:{
+        color:'gray',
+        marginTop:15,
+        marginBottom:2
+    },
+    container_survey_screen:{
+        paddingVertical:10,
+        paddingHorizontal:20
+    },
+    touchable_btn_cancel:{
+        //        backgroundColor:'#1270b5',
+        backgroundColor:'#fff',
+        borderColor:'#eb7405',
+        borderWidth:1,
+
+    },
+    text_btn_cancel:{
+        color:'#000'
+    },
+    text_light_gray:{
+        color:'gray',
+     },
+     btn_green:{
+        backgroundColor:'green',
+        borderRadius:10,
+        borderWidth:0,
+        paddingHorizontal:10,
+        paddingVertical:1,
+        color:'#fff',
+        marginBottom:5
+     },
+
+
 })
