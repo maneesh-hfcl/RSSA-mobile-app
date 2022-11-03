@@ -1,6 +1,6 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { useEffect, useState } from "react";
-import { Alert , Text} from "react-native";
+import { Alert , Text,View} from "react-native";
 import ProcessBaseComponent from "../../components/processBase";
 import {listProcesses} from "../../data/processList";
 import AccountScreen from "../../screens/accountScreen";
@@ -9,15 +9,18 @@ const Tab = createMaterialTopTabNavigator();
 const TabProcessScreen = ({route})=>{
     const[processes, setProcesses] = useState([])
     const {itemqry} = route.params
-   // console.log(itemqry.Name)
+    console.log("itm" + itemqry.Name)
     
 
     useEffect(()=>{
-        //Alert.alert('helo')
+        // Alert.alert('helo')
         //console.log(listProcesses())
         const data = listProcesses() //listProcesses()
         setProcesses(data)
-        console.log(data)
+       // console.log(data)
+    //    processes.map( (item, index) =>{
+    //         console.log("Index: " + item.Id + " Name:"+item.Name)
+    //    })
     }
     ,[route])
 
@@ -25,24 +28,31 @@ const TabProcessScreen = ({route})=>{
         return null;
     
     return(
-            
+        
+        // <View>
+        //     <Text>hello</Text>
+        // {
+        //     processes.map((item,index)=> {
+        //      return   <Text>dpme{item.Id} / {index}</Text>
+        //     })
+        // }
+        // </View>
             <Tab.Navigator screenOptions={{tabBarScrollEnabled:true}} 
                 defaultScreenOptions ={{
                     tabBarLabelStyle:{textTransform:"none"},
                 }}
             >
-                    {
-                        processes.map( (item, index) => 
+                     {
+                        processes.map((item, index) => 
                             <Tab.Screen key={index} name={"screen"+item.Id} 
-                                initialParams={{processId:item.Id, site: itemqry}} 
+                                initialParams={{processId:(index+1), site: itemqry}} 
                                 component={ProcessBaseComponent} 
                                 options={() =>({
                                     title:item.Name})
                                 } 
                                 />
                         )
-                        
-                    }
+                    } 
 
             </Tab.Navigator>
 

@@ -1,0 +1,45 @@
+###
+GET http://172.20.177.75:30181/restconf/config/network-topology:network-topology?content=config HTTP/1.1
+Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
+
+###
+PUT http://172.20.177.75:30181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/RU HTTP/1.1
+Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
+
+{
+    "node": [
+    {
+            "node-id": "RU",
+            "netconf-node-topology:sleep-factor": 1.5,
+            "netconf-node-topology:max-connection-attempts": 100,
+            "netconf-node-topology:username": "root",
+            "netconf-node-topology:password": "root",
+            "netconf-node-topology:host": "172.20.177.76",
+            "netconf-node-topology:port": 830,
+            "netconf-node-topology:reconnect-on-changed-schema": false,
+            "netconf-node-topology:connection-timeout-millis": 20000,
+            "netconf-node-topology:tcp-only": false,
+            "netconf-node-topology:keepalive-delay": 120,
+            "netconf-node-topology:between-attempts-timeout-millis": 2000
+ }
+    
+    ]
+}
+
+###
+DELETE http://172.20.177.75:30181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/RU HTTP/1.1
+Content-Type: application/json
+Cache-Control: no-cache
+Authorization: Basic YWRtaW46YWRtaW4=
+
+{
+    "node": [
+        {
+            "node-id": "RU"
+ 
+        }  
+    
+    ]
+}

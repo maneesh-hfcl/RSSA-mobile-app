@@ -9,52 +9,48 @@ import DriveTestScreen from "../screens/process/driveTestScreen";
 import AcceptanceScreen from "../screens/process/acceptanceScreen";
 import CustHandoverScreen from "../screens/process/custHandoverScreen";
 import StackSiteSurvey from "../navigation/stack/siteSurveyStack";
+import { Switch } from "react-native-web";
 
 const ProcessBaseComponent = ({route}, props)=>{
-//     const[scrnId, setScrnId] = useState(0)
-    const[siteId, setSiteId] = useState(null)
-     const {processId, site} = route.params;
-    // console.log(site.Name)
- //   console.log("Process id base comp " + site.Name)
-//     const routeName = getFocusedRouteNameFromRoute(route);
-//    // console.log(routeName)
-//    useEffect(() => {
-//         if(scrnId == 0)
-//             setScrnId(1)
-//         console.log("first time load: "+ scrnId)
-//     }
-//     ,[])
+    const[processIdVal, setProcessId] = useState(1)
+   const {processId, site} = route.params;
+    const[siteId, setSiteId] = useState(null);
+    
+
+    
    useEffect(() => {
-      //  const {processId} = route.params;
-        
-      //  setSiteId(processId)
+         console.log("new processid: " + processId)
     }
-    ,[route])
+    ,[])
 
     switch(processId){
-        case 1:
-            return <StackSiteSurvey siteRoute={route.params} {...props} />
+        case 1: 
+            return <StackSiteSurvey siteRoute={site} />
             break;
-        case 2: 
-            return <SiteBuildScreen />
-            break;
-        case 3:
+        case 2:
             return <MaterialSiteScreen />
             break;
-        case 4: 
+        case 3:
+            return <SiteBuildScreen />
+            break
+        case 4:
             return <CommissionScreen />
-            break;
+            break
         case 5:
             return <DriveTestScreen />
-            break;
-        case 6: 
+            break
+        case 6:
             return <AcceptanceScreen />
-            break;
+            break
         case 7:
             return <CustHandoverScreen />
-            break;
-            
-   }
+            break
+    }
+    
+
+    
+    
+
 }
 
 export default ProcessBaseComponent;

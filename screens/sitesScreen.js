@@ -1,6 +1,6 @@
 import { BaseNavigationContainer } from "@react-navigation/native";
 import React,{useState, useEffect} from "react";
-import {View, Text, ScrollView} from 'react-native'
+import {View, Text, ScrollView, Alert} from 'react-native'
 import BaseContainer from "../components/propsOuter";
 import ResultList from "../components/resultList";
 import { globalStyles } from "../style/global";
@@ -39,7 +39,7 @@ const SitesScreen = ({navigation})=>{
 
     const loadList = ()=>{
         setItems(data)
-        console.log(data);
+        // console.log(data);
     }
 
     useEffect(()=>{
@@ -50,7 +50,8 @@ const SitesScreen = ({navigation})=>{
     ,[])
 
     const onItemClick = (item)=>{
-        //console.log(item)
+        console.log(item)
+      //  Alert.alert("hello")
         navigation.navigate("Process",{itemqry: item})
 
     }

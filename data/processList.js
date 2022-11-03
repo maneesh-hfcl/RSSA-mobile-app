@@ -24,7 +24,6 @@ export function fn_siteSurveyList(){
             {"Id":7, "Name":"Technical Site Survey Report (TSSR)", "Desc":"Acceptance Test"},
             {"Id":8, "Name":"Technical Site Survey Report (TSSR)", "Desc":"Acceptance Test"},
             {"Id":9, "Name":"Technical Site Survey Report (TSSR)", "Desc":"Acceptance Test"}
-
         ]
     return data;
 }

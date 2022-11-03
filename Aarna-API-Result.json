@@ -1,0 +1,47 @@
+HTTP/1.1 200 OK
+Content-Type: application/yang.data+json
+Date: Wed, 24 Aug 2022 12:00:34 GMT
+Content-Length: 1142
+Age: 0
+Connection: close
+Via: 1.1 g32hfclweb.hfcl.com
+
+{
+  "network-topology": {
+    "topology": [
+      {
+        "topology-id": "topology-netconf",
+        "node": [
+          {
+            "node-id": "ems",
+            "netconf-node-topology:sleep-factor": 1.5,
+            "netconf-node-topology:max-connection-attempts": 100,
+            "netconf-node-topology:username": "netconf",
+            "netconf-node-topology:password": "netconf",
+            "netconf-node-topology:host": "172.20.177.75",
+            "netconf-node-topology:port": 830,
+            "netconf-node-topology:reconnect-on-changed-schema": false,
+            "netconf-node-topology:connection-timeout-millis": 20000,
+            "netconf-node-topology:tcp-only": false,
+            "netconf-node-topology:keepalive-delay": 120,
+            "netconf-node-topology:between-attempts-timeout-millis": 2000
+          },
+          {
+            "node-id": "device",
+            "netconf-node-topology:sleep-factor": 1.5,
+            "netconf-node-topology:max-connection-attempts": 100,
+            "netconf-node-topology:username": "root",
+            "netconf-node-topology:password": "root",
+            "netconf-node-topology:host": "172.20.177.76",
+            "netconf-node-topology:port": 830,
+            "netconf-node-topology:reconnect-on-changed-schema": false,
+            "netconf-node-topology:connection-timeout-millis": 20000,
+            "netconf-node-topology:tcp-only": false,
+            "netconf-node-topology:keepalive-delay": 120,
+            "netconf-node-topology:between-attempts-timeout-millis": 2000
+          }
+        ]
+      }
+    ]
+  }
+}

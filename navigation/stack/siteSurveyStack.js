@@ -20,7 +20,7 @@ const Header = ()=>{
 
 
 
-const StackSiteSurvey = ({siteRoute, navigation})=>{
+const StackSiteSurvey = ({siteRoute})=>{
 
     
     return(
